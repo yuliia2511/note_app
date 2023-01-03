@@ -1,0 +1,98 @@
+body {
+    max-width: 1440px;
+    height: 100vh;
+    background-color: rgba(35, 130, 203, 0.564);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px;
+}
+
+.note {
+    background-color: white;
+    width: 300px;
+    height: 250px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.new-btn {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.new-btn>label {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.new-btn .material-symbols-outlined {
+    color: rgb(9, 169, 243);
+    font-size: 45px;
+    position: relative;
+}
+
+.new-btn .material-symbols-outlined::after {
+    border: 4px dashed rgb(9, 169, 243);
+    border-radius: 50%;
+    position: absolute;
+    inset: -7px;
+    content: '';
+}
+
+h5 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: rgb(9, 169, 243);
+    margin: 10px;
+}
+
+.note:nth-child(n+2) {
+    padding: 20px;
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+.text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: dimgray;
+    height: 53%;
+    text-align: justify;
+}
+
+.date {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    color: dimgray;
+}
+
+.opt-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
