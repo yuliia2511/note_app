@@ -16,10 +16,18 @@ button {
 }
 
 .notes {
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     padding: 60px;
+    color: rgba(14, 34, 42, 0.966);
+    position: relative;
+}
+
+.close-opt {
+    position: absolute;
+    inset: 0;
 }
 
 .note {
@@ -61,7 +69,6 @@ button {
 }
 
 h5 {
-    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     color: rgb(9, 169, 243);
     margin: 10px;
@@ -72,27 +79,36 @@ h5 {
 }
 
 .title {
-    font-family: 'Open Sans', sans-serif;
     font-size: 24px;
     margin: 0;
 }
 
 .text {
-    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    color: dimgray;
     height: 53%;
     text-align: justify;
 }
 
 .date {
-    font-family: 'Open Sans', sans-serif;
     font-size: 10px;
-    color: dimgray;
 }
 
 .opt-btn {
     position: absolute;
     right: 20px;
     bottom: 20px;
+}
+
+.options {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background: #fff;
+    padding: 3px 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+:not(:has(:checked))+.options {
+    display: none;
 }
