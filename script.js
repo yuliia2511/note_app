@@ -15,21 +15,50 @@ noteContainer.onclick = function(e) {
 }
 
 addNoteBtn.onclick = function() {
-    newNote.insertAdjacentElement('afterEnd', templateNote.cloneNode(true));
+    toggleEdit(false);
+
+    const note = templateNote.cloneNode(true);
+
+    newNote.insertAdjacentElement('afterEnd', note);
+    toggleEdit(note, true);
 }
 
-
-
 function toggleEdit(note, on) {
-    let title = note.getElementsByClassName('title')[0];
-    let text = note.getElementsByClassName('text')[0];
+    if (!note) {
+        note = noteContainer.querySelector('.note:has([contenteditable])');
+        if (!note) return ;
+    }
+
+    const title = note.getElementsByClassName('title')[0];
+    const text = note.getElementsByClassName('text')[0];
 
     if (on) {
+        const el = title.textContent == 'Title' ? title 
+            : text.textContent == 'Text' ? text : null;
         title.setAttribute('contenteditable', '');
         text.setAttribute('contenteditable', '');
+
+        setTimeout(() => el ? focusEdit(el) : text.focus());
+
+        addEventListener('focus', function save(e) {
+            if (!note.contains(e.target)) {
+                toggleEdit(note, false);
+                this.removeEventListener('focus', save);
+            }
+        }, true)
     } else {
         title.removeAttribute('contenteditable');
         text.removeAttribute('contenteditable');
     }
+}
+
+function focusEdit(el) {
+    el.onfocus = () => {
+        const selection = getSelection();
+        selection.selectAllChildren(el);
+        el.onfocus = null;
+        el.onblur = () => selection.removeAllRanges();
+    }
+    el.focus();
 }
 
