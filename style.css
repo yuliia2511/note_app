@@ -1,7 +1,8 @@
 body {
     max-width: 1440px;
     height: 100vh;
-    background-color: rgba(35, 130, 203, 0.564);
+    background-color: #8f94fb;
+    display: flex;
 }
 
 ul {
@@ -39,6 +40,15 @@ button {
     position: relative;
 }
 
+.new-note {
+    background-color: white;
+    width: 300px;
+    height: 250px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+
 .new-btn {
     display: block;
     height: 100%;
@@ -55,13 +65,13 @@ button {
 }
 
 .new-btn .material-symbols-outlined {
-    color: rgb(9, 169, 243);
+    color: #4e54c8;
     font-size: 45px;
     position: relative;
 }
 
 .new-btn .material-symbols-outlined::after {
-    border: 4px dashed rgb(9, 169, 243);
+    border: 4px dashed #4e54c8;
     border-radius: 50%;
     position: absolute;
     inset: -7px;
@@ -70,7 +80,7 @@ button {
 
 h5 {
     font-size: 13px;
-    color: rgb(9, 169, 243);
+    color:#4e54c8;
     margin: 10px;
 }
 
@@ -111,4 +121,100 @@ h5 {
 
 :not(:has(:checked))+.options {
     display: none;
+}
+
+.material-icons {
+    font-size: 15px;
+    margin-left: -20px;
+}
+
+.modal {
+    background-color: white;
+    width: 350px;
+    height: 350px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal-content {
+    width: 350px;
+    height: 350px;
+}
+
+.modal-header {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.header-title, .header-title-2 {
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(14, 34, 42, 0.966);
+    font-size: 20px;
+    margin: 0;
+}
+
+.header-text {
+    width: 316px;
+    height: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+    z-index: 1;
+}
+
+.modal-body {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.header-text-2 {
+    width: 324px;
+    height: 130px;
+    box-sizing: border-box;
+    resize: none;
+    font-size: 12px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.modal-footer {
+    display: flex;
+    height: 50px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-mod {
+    height: 40px;
+    width: 88px;
+    border: 1px solid #4e54c8;
+    border-radius: 5px;
+    margin-right: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.btn-save {
+    color: #fff;
+    background-color: #4e54c8;
+}
+
+.btn-cansel {
+    color: #4e54c8;
+    background-color: #fff;
 }
