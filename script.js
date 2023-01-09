@@ -31,12 +31,14 @@ function toggleEdit(note, on) {
 
     const title = note.getElementsByClassName('title')[0];
     const text = note.getElementsByClassName('text')[0];
+    const date = note.getElementsByClassName('date')[0];
 
     if (on) {
         const el = title.textContent == 'Title' ? title 
             : text.textContent == 'Text' ? text : null;
         title.setAttribute('contenteditable', '');
         text.setAttribute('contenteditable', '');
+        date.innerHTML = new Date().toLocaleDateString();
 
         setTimeout(() => el ? focusEdit(el) : text.focus());
 
