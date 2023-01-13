@@ -3,6 +3,7 @@ const addNoteBtn = document.getElementById('new-btn');
 const templateNote = document.getElementsByClassName('note')[0];
 const newNote = document.getElementById('new-note');
 const noteContainer = document.getElementsByClassName('notes')[0];
+const deleteBtn = document.getElementsByClassName('delete')[0];
 
 templateNote.remove();
 
@@ -11,7 +12,13 @@ noteContainer.onclick = function(e) {
         const note = e.target.closest('.note');
 
         toggleEdit(note, true);
-    }  
+    } 
+    
+    if (e.target.classList.contains('delete')) {
+        const note = e.target.closest('.note');
+        
+        note.remove();
+    }
 }
 
 addNoteBtn.onclick = function() {
@@ -42,7 +49,7 @@ function toggleEdit(note, on) {
 
         setTimeout(() => el ? focusEdit(el) : text.focus());
 
-        addEventListener('focus', function save(e) {
+        document.addEventListener('focus', function save(e) {
             if (!note.contains(e.target)) {
                 toggleEdit(note, false);
                 this.removeEventListener('focus', save);
@@ -63,4 +70,7 @@ function focusEdit(el) {
     }
     el.focus();
 }
+
+
+
 
