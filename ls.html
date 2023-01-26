@@ -1,0 +1,11 @@
+<input id="input">
+<input id="input2">
+<script>
+  const arr = (localStorage.str || '⌘').split('⌘');
+  input.value = arr[0] || ''; 
+  input2.value = arr[1] || '';
+  oninput = () => localStorage.str = input.value + '⌘' + input2.value
+
+
+
+</script>
